@@ -15,12 +15,14 @@ public class LoggingTest {
         console.setLevel(Level.ALL);
         files.setLevel(Level.ALL);
 
+        // add the handler to output to file and to output to console
         logger.addHandler(files);
         logger.addHandler(console);
-        logger.setLevel(Level.ALL);
-        logger.setUseParentHandlers(false);
 
-        logger.entering(LoggingTest.class.getName(), "method");
+        logger.setLevel(Level.ALL); // log everything
+        logger.setUseParentHandlers(false); // we made the handlers already
+
+        logger.entering(LoggingTest.class.getName(), "method"); // report that the program entered/exited a method
         method();
         logger.exiting(LoggingTest.class.getName(), "method");
 
